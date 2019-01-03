@@ -1,0 +1,27 @@
+<div ng-controller="CreateOrgCtrl" class="main">
+    <script type="text/ng-template" id="3.html">
+
+        <div class="modal-header">
+            <h5 class="modal-title-md">Create Organization</h5>
+        </div>
+        <div class="modal-body-md modal-create">
+        <span class="h5">It looks like your organization isn't on snackSnap yet. Tell us a little more so you can join!</span>
+          <div>
+            <form name="createOrg" id="createOrg" ng-model="orgForm" class="sr-form">
+                <div class="form-group">
+                    <label for="name">Organiation Name</label>
+                    <input type="text" id="name" ng-model="createOrg.details" class="form-control" g-places-autocomplete required autofocus=true>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="address" for="address" class="form-control" id="address" placeholder="Address" ng-model="createOrg.details.formatted_address" required>
+                </div>
+                <i class="fa fa-circle-o-notch fa-spin fa-2x" ng-show="submitting"></i>
+                <span class="label label-success">{{successMessage}}</span>
+                <span class="label label-danger">{{failureMessage}}</span>
+                <button type="submit" class="btn btn-primary pull-right" ng-click="submitOrg()" ng-disabled="createOrg.$invalid">Create</button>
+            </form>
+          </div>
+        </div>   
+    </script>
+<div>

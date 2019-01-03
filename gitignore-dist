@@ -1,0 +1,3 @@
+### this is copied to the distribution so our db isn't deleted on a new code push to production ###
+
+*.sqlite

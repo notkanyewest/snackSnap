@@ -1,0 +1,57 @@
+<div ng-controller="CreateRestCtrl" class="main">
+    <script type="text/ng-template" id="4.html">
+
+        <div class="modal-header">
+            <h5 class="modal-title-md">Create Restaurant</h5>
+        </div>
+        <div class="modal-body-md modal-create">
+        <span class="h5">Use this form to add a new restaurant. Thanks for contributing!</span>
+          <div>
+            <form name="createRest" id="createRest" ng-model="restForm" class="sr-form">
+                <div class="form-group">
+                    <label for="name">Restaurant Name</label>
+                    <input type="text" id="name" ng-model="createRest.details" class="form-control" g-places-autocomplete required autofocus=true>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="address" for="address" class="form-control" id="address" placeholder="Address" ng-model="createRest.details.formatted_address" required>
+                </div>
+                <div class="form-group">
+                    <label for="healthRating">How healthy is this restaurant?</label>
+                        <span class="label label-default">{{heartText}}</span>
+
+                        <rating required ng-model="createRest.healthRating" id="healthRating" max="3" state-on="'fa fa-heart fa-2x'" state-off="'fa fa-heart-o fa-2x'" class="pull-right" class="rating" on-hover="hoverHeart(value)" on-leave="hoverHeart(4)">
+
+                </div>
+                <div class="form-group">
+                    <label for="priceRating">How expensive is this restaurant?</label>
+                    <span class="label label-default">{{priceText}}</span>
+
+                    <rating required ng-model="createRest.priceRating" max="3" id="priceRating" state-on="'fa fa-usd fa-2x dollar-on'" state-off="'fa fa-usd fa-2x dollar-off'" class="pull-right" class="rating" on-hover="hoverPrice(value)" on-leave="hoverPrice(4)">
+                </div>
+                <div class="form-group">
+                <label for='rating'>How would you rate this restaurant?</label>
+                    <span class="label label-default">{{ratingText}}</span>
+
+                    <rating required ng-model="createRest.rating" max="5" id="rating" state-on="'fa fa-star fa-2x star-rating'" state-off="'fa fa-star-o fa-2x star-rating'" class="pull-right" class="rating" on-hover="hoverRating(value)" on-leave="hoverRating(6)">
+                </div>
+                <div class="form-group">
+                    <label for="description">Please describe this restaurant - what do you think of it?</label>
+
+                    <textarea required rows="7" class="form-control" id="description" placeholder="Cafe Venue is a great place to stop in for a quick salad or sandwich. Although the line can look a bit long, it moves quickly, and the prices can't be beat. When you need something quick on your short lunch break, this is a great choice." ng-model="createRest.description" required></textarea>
+                </div>
+                <div>
+                    <i class="fa fa-circle-o-notch fa-spin fa-2x" ng-show="submitting"></i>
+                    <span class="label label-success">{{successMessage}}</span>
+                    <span class="label label-danger">{{failureMessage}}</span>
+                    <div class="action-btns">
+                        <button type="submit" class="btn btn-done btn-warning pull-right" ng-click="doneButton()">Done</button>
+                        <button type="submit" class="btn btn-primary pull-right" ng-click="submitRestaurant()" ng-disabled="createRest.$invalid || !createRest.details.name">Create</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>   
+    </script>
+<div>
